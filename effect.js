@@ -16,8 +16,8 @@ $('document').ready(function () {
         $('#b77').animate({top: 240, left: vw + 250}, 500);
     });
     // Get Birthday Boy/Girl's Name
-    const person = getUrlParameter("p");
-    const title_person = getUrlParameter("t");
+    const person = getUrlParameter("p") ?? "";
+    const title_person = getUrlParameter("t") ?? "";
 
     // Set title of the document
     $(document).prop('title', `Happy Birthday ${person}`)
@@ -50,8 +50,12 @@ $('document').ready(function () {
         "All the best for your upcoming future..." ,
         "Take care stay blessed..." ,
         "Love from Nayem....❤️",
-        "\"Klaudia is taller than Sharad\" ~Annika",
-        "\"lun lun so nice she makes tanveer look rude 🙂\" ~Ali",
+        "\"Klaudia is taller than Sharad\" ~ Annika",
+        "\"lun lun so nice she makes tanveer look rude 🙂\" ~ Ali",
+        "\"Happy b-day valorant god\" ~ Kim",
+        "\"you are better reyna than ranzo or smallz\" ~ Viserion",
+        "\Klaudia deserves Bronze 1\" ~ Jan",
+        "Klaudia makes me look innocent. You’ve all been fooled by face and voice 🙄\" ~ Dilu",
         "\"Hope you liked the Poem 😁. HBD LunLun\" ~ Tanveer",
         "Once Again",
         `Happy Birthday ${person} 🎂`
