@@ -43,6 +43,13 @@ $('document').ready(function () {
         "That \"hill\" will be out of sight!🤐",
         "JK, you're still young",
         "Here are few words about you from your friends",
+        "From Nayem",
+        "Happy birthday My Noob adc and pro support...",
+        "Many many happy returns of the day ..",
+        "I pray that your life get full with joy and happiness..." ,
+        "All the best for your upcoming future..." ,
+        "Take care stay blessed..." ,
+        "Love from Nayem....❤️",
         "\"Klaudia is taller than Sharad\" ~Annika",
         "\"lun lun so nice she makes tanveer look rude 🙂\" ~Ali",
         "\"Hope you liked the Poem 😁. HBD LunLun\" ~ Tanveer",
@@ -222,7 +229,7 @@ $('document').ready(function () {
         var i;
 
         function msgLoop(i) {
-            const delay = i >= 18 && i<= wish.length-2 ? 3000 : 1000;
+            const delay = i >= 19 && i<= wish.length-2 ? 4000 : 1000;
             $("p:nth-child(" + i + ")").fadeOut('slow').delay(800).promise().done(function () {
                 i = i + 1;
                 $("p:nth-child(" + i + ")").fadeIn('slow').delay(delay);
