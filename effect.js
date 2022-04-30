@@ -16,50 +16,66 @@ $('document').ready(function () {
         $('#b77').animate({top: 240, left: vw + 250}, 500);
     });
     // Get Birthday Boy/Girl's Name
-    const person = getUrlParameter("p") ?? "";
     const title_person = getUrlParameter("t") ?? "";
+
+    // Set data of the document
+    const data = {
+        name: "Kim",
+        title: "kim",
+        slowWish: [
+            6,
+            13,
+        ],
+        wish: [
+            "Today is...",
+            "as beautiful as other days",
+            "but you realize",
+            "another year has gone",
+            "in a blink of the eyes",
+            "Here's a few words from your friends",
+            "When you hold op nobody dares to go in your los ~ Klaudia",
+            "Big love Kim hope you have a great birthday! ~ Mike",
+            "Happy birthday Kim my Baby boy.... ~ Nayem",
+            "Stay blessed and stay happy!!!! ~ Nayem",
+            "Love from Nayem...",
+            "Kim you are a cool dude, carry on being an awesome and wholesome guy. ~ Ali",
+            "Also stop banning ur brothers champs he can carry on all. ~ Ali",
+            "Hope you had a blast day, keep shining ❤ ~ Tanveer",
+            "Here's a poem for you, sorry for being late...",
+            "May you have a very happy birthday",
+            "A celebration with family and friends",
+            "Filled with whatever brings you joy",
+            "The kind of joy that never ends",
+            "With all the love your heart can hold",
+            "And the utter joy birthday bring",
+            "May you have a truly special day",
+            "You deserve the best of everything",
+            "Let's raise a glass and make a toast",
+            "Wishing joy, peace and health to you",
+            "May your birthday be truly happy",
+            "Full of love and life all day through",
+        ]
+    }
+    // var script = document.createElement('script');
+    // script.src = `data/${title_person}.js`;
+    // document.getElementsByTagName('head')[0].appendChild(script);
+    // console.log(window.data);
+    // return;
+
+    // const data = require(`data/${title_person}.js`);
+    // $("#json-data").attr("src", `data/${title_person}.js`);
+    const person = data.name;
 
     // Set title of the document
     $(document).prop('title', `Happy Birthday ${person}`)
 
     // Set Message
-    const wish = [
-        "Today is...",
-        "as beautiful as other days",
-        "but you realize",
-        "another year has gone",
-        "in a blink of the eyes",
-        "So it's your thirtieth birthday;",
-        "Three decades have gone and passed.",
-        "They say when you get older,",
-        "Time goes twice as fast.😂",
-        "I wouldn't know, of course,",
-        "Since I am still quite young, 😋",
-        "But for you, the music is over;",
-        "Your last song has been sung.😪",
-        "You're just over the hill at thirty😂;",
-        "You went down without a fight.🙂",
-        "Time rushes on, and soon",
-        "That \"hill\" will be out of sight!🤐",
-        "JK, you're still young",
-        "Here are few words about you from your friends",
-        "From Nayem",
-        "Happy birthday My Noob adc and pro support...",
-        "Many many happy returns of the day ..",
-        "I pray that your life get full with joy and happiness..." ,
-        "All the best for your upcoming future..." ,
-        "Take care stay blessed..." ,
-        "Love from Nayem....❤️",
-        "\"Klaudia is taller than Sharad\" ~ Annika",
-        "\"lun lun so nice she makes tanveer look rude 🙂\" ~ Ali",
-        "\"Happy b-day valorant god\" ~ Kim",
-        "\"you are better reyna than ranzo or smallz\" ~ Viserion",
-        "\"Klaudia deserves Bronze 1\" ~ Jan",
-        "\"Klaudia makes me look innocent. You’ve all been fooled by face and voice 🙄\" ~ Dilu",
-        "\"Hope you liked the Poem 😁. HBD LunLun\" ~ Tanveer",
+    const wish = data.wish;
+    wish.push([
         "Once Again",
-        `Happy Birthday ${person} 🎂`
-    ];
+        `Happy Birthday ${person} 🎂`,
+    ]);
+    console.log("Wish",wish);
 
     // Set Person's name on balloon
     for (var i = 0; i < title_person.length || i < 4; i++) {
@@ -233,7 +249,7 @@ $('document').ready(function () {
         var i;
 
         function msgLoop(i) {
-            const delay = i >= 18 && i<= wish.length-2 ? 4000 : 1000;
+            const delay = i >= data.slowWish[0] && i<= data.slowWish[1] ? 4000 : 1500;
             $("p:nth-child(" + i + ")").fadeOut('slow').delay(800).promise().done(function () {
                 i = i + 1;
                 $("p:nth-child(" + i + ")").fadeIn('slow').delay(delay);
