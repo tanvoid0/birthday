@@ -2,7 +2,7 @@ const data = {
     name: "Kim",
     title: "kim",
     slowWish: [
-        8,
+        6,
         13,
     ],
     wish: [
@@ -16,7 +16,7 @@ const data = {
         "Big love Kim hope you have a great birthday! ~ Mike",
         "Happy birthday Kim my Baby boy.... ~ Nayem",
         "Stay blessed and stay happy!!!! ~ Nayem",
-        "Love from Nayem... ~ Nayem",
+        "Love from Nayem...",
         "Kim you are a cool dude, carry on being an awesome and wholesome guy. ~ Ali",
         "Also stop banning ur brothers champs he can carry on all. ~ Ali",
         "Hope you had a blast day, keep shining ❤ ~ Tanveer",
@@ -35,5 +35,3 @@ const data = {
         "Full of love and life all day through",
     ]
 }
-
-window.data = data;
