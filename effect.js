@@ -1,276 +1,124 @@
+/**
+ * Common Variables
+ */
+let title_person = "julia";
+
 $(window).load(function () {
     $('.loading').fadeOut('fast');
     $('.container').fadeIn('fast');
 });
 $('document').ready(function () {
-    var vw;
+    addDynamicBalloons(title_person);
     $(window).resize(function () {
-        vw = $(window).width() / 2;
-        $('#b1,#b2,#b3,#b4,#b5,#b6,#b7').stop();
-        $('#b11').animate({top: 240, left: vw - 350}, 500);
-        $('#b22').animate({top: 240, left: vw - 250}, 500);
-        $('#b33').animate({top: 240, left: vw - 150}, 500);
-        $('#b44').animate({top: 240, left: vw - 50}, 500);
-        $('#b55').animate({top: 240, left: vw + 50}, 500);
-        $('#b66').animate({top: 240, left: vw + 150}, 500);
-        $('#b77').animate({top: 240, left: vw + 250}, 500);
+        sortBalloons(false);
     });
-    // Get Birthday Boy/Girl's Name
-    const title_person = getUrlParameter("t") ?? "";
-
-    // Set data of the document
-    const data = {
-        name: "Sharad",
-        title: "shrd",
-        slowWish: [
-            10,
-            17,
-        ],
-        wish: [
-            "You may look a little older,",
-            "Sadly youth doesn't come cheap.",
-            "So skip all those Botox parties,",
-            "And just get your beauty sleep",
-            "Be glad you're a young at heart",
-            "And still look as good as gold",
-            "Too bad you are not a Master Ranked",
-            "And can't put your Diamond rank on hold",
-            "Hahaahaa 😂😂",
-
-            "Here's a few words from your friends",
-            "\"Got carried to diamond still decent player. U suck alot... HBD\" ~ Nayem",
-            "\"Sharad you suck\"! viserion",
-            "\"Get good and happy birthday\" ~ Giuseppe",
-            "\"happy birthday bigboss\" ~ Jan",
-            "“They give Diamond to anyone these days, Happy Birthday Sharad ❤️ ~ Dilu “",
-            "\"Happy Birthday Sharad, you’re the most beautiful Patel I’ve ever met!! Long live Prince Shazza\" ~ Annika",
-            "\"Happy birthday u mug 🙂\" ~ Ali",
-            "\"Hope you reach your goals and face your challenges. HBD\" ~ Tanveer",
-
-
-            "Let's raise a glass and make a toast",
-            "Wishing joy, peace and health to you",
-            "May your birthday be truly happy",
-            "Full of love and life all day through",
-        ]
-    }
-    // var script = document.createElement('script');
-    // script.src = `data/${title_person}.js`;
-    // document.getElementsByTagName('head')[0].appendChild(script);
-    // console.log(window.data);
-    // return;
-
-    // const data = require(`data/${title_person}.js`);
-    // $("#json-data").attr("src", `data/${title_person}.js`);
-    const person = data.name;
+    $('#gif-container').fadeOut('fast');
 
     // Set title of the document
-    $(document).prop('title', `Happy Birthday ${person}`)
+    $(document).prop('title', `Happy Birthday ${data.name}`)
 
     // Set Message
-    const wish = data.wish;
-    wish.push([
-        "Once Again",
-        `Happy Birthday ${person} 🎂`,
-    ]);
-    console.log("Wish",wish);
+    setWish();
 
-    // Set Person's name on balloon
-    for (var i = 0; i < title_person.length || i < 4; i++) {
-        $(`#balloon-name-${i + 1}`).text(title_person.charAt(i));
-    }
-
-    // Set Person's wish
-    for(var i=0; i<wish.length; i++) {
-    	$(`<p>${wish[i]}</p>`).appendTo("#wish");
-    }
-
-    $('#turn_on').click(function () {
-        $('#bulb_yellow').addClass('bulb-glow-yellow');
-        $('#bulb_red').addClass('bulb-glow-red');
-        $('#bulb_blue').addClass('bulb-glow-blue');
-        $('#bulb_green').addClass('bulb-glow-green');
-        $('#bulb_pink').addClass('bulb-glow-pink');
-        $('#bulb_orange').addClass('bulb-glow-orange');
-        $('body').addClass('peach');
-        $(this).fadeOut('slow').delay(5000).promise().done(function () {
-            $('#play').fadeIn('slow');
-        });
-    });
-    $('#play').click(function () {
-        var audio = $('.song')[0];
-        audio.play();
-        $('#bulb_yellow').addClass('bulb-glow-yellow-after');
-        $('#bulb_red').addClass('bulb-glow-red-after');
-        $('#bulb_blue').addClass('bulb-glow-blue-after');
-        $('#bulb_green').addClass('bulb-glow-green-after');
-        $('#bulb_pink').addClass('bulb-glow-pink-after');
-        $('#bulb_orange').addClass('bulb-glow-orange-after');
-        $('body').css('backgroud-color', '#FFF');
-        $('body').addClass('peach-after');
-        $(this).fadeOut('slow').delay(6000).promise().done(function () {
-            $('#bannar_coming').fadeIn('slow');
-        });
-    });
-
-    $('#bannar_coming').click(function () {
-        $('.bannar').addClass('bannar-come');
-        $(this).fadeOut('slow').delay(6000).promise().done(function () {
-            $('#balloons_flying').fadeIn('slow');
-        });
-    });
-
-    function loopOne() {
-        var randleft = 1000 * Math.random();
-        var randtop = 500 * Math.random();
-        $('#b1').animate({left: randleft, bottom: randtop}, 10000, function () {
-            loopOne();
-        });
-    }
-
-    function loopTwo() {
-        var randleft = 1000 * Math.random();
-        var randtop = 500 * Math.random();
-        $('#b2').animate({left: randleft, bottom: randtop}, 10000, function () {
-            loopTwo();
-        });
-    }
-
-    function loopThree() {
-        var randleft = 1000 * Math.random();
-        var randtop = 500 * Math.random();
-        $('#b3').animate({left: randleft, bottom: randtop}, 10000, function () {
-            loopThree();
-        });
-    }
-
-    function loopFour() {
-        var randleft = 1000 * Math.random();
-        var randtop = 500 * Math.random();
-        $('#b4').animate({left: randleft, bottom: randtop}, 10000, function () {
-            loopFour();
-        });
-    }
-
-    function loopFive() {
-        var randleft = 1000 * Math.random();
-        var randtop = 500 * Math.random();
-        $('#b5').animate({left: randleft, bottom: randtop}, 10000, function () {
-            loopFive();
-        });
-    }
-
-    function loopSix() {
-        var randleft = 1000 * Math.random();
-        var randtop = 500 * Math.random();
-        $('#b6').animate({left: randleft, bottom: randtop}, 10000, function () {
-            loopSix();
-        });
-    }
-
-    function loopSeven() {
-        var randleft = 1000 * Math.random();
-        var randtop = 500 * Math.random();
-        $('#b7').animate({left: randleft, bottom: randtop}, 10000, function () {
-            loopSeven();
-        });
-    }
-
-    $('#balloons_flying').click(function () {
-        $('.balloon-border').animate({top: -500}, 8000);
-        $('#b1,#b4,#b5,#b7').addClass('balloons-rotate-behaviour-one');
-        $('#b2,#b3,#b6').addClass('balloons-rotate-behaviour-two');
-        // $('#b3').addClass('balloons-rotate-behaviour-two');
-        // $('#b4').addClass('balloons-rotate-behaviour-one');
-        // $('#b5').addClass('balloons-rotate-behaviour-one');
-        // $('#b6').addClass('balloons-rotate-behaviour-two');
-        // $('#b7').addClass('balloons-rotate-behaviour-one');
-        loopOne();
-        loopTwo();
-        loopThree();
-        loopFour();
-        loopFive();
-        loopSix();
-        loopSeven();
-
-        $(this).fadeOut('slow').delay(5000).promise().done(function () {
-            $('#cake_fadein').fadeIn('slow');
-        });
-    });
-
-    $('#cake_fadein').click(function () {
-        $('.cake').fadeIn('slow');
-        $(this).fadeOut('slow').delay(3000).promise().done(function () {
-            $('#light_candle').fadeIn('slow');
-        });
-    });
-
-    $('#light_candle').click(function () {
-        $('.fuego').fadeIn('slow');
-        $(this).fadeOut('slow').promise().done(function () {
-            $('#wish_message').fadeIn('slow');
-        });
-    });
+    $('#turn_on').click(stepOneTurnOnLights);
 
 
-    $('#wish_message').click(function () {
-        vw = $(window).width() / 2;
+    $('#play').click(stepTwoPlayMusic);
 
-        $('#b1,#b2,#b3,#b4,#b5,#b6,#b7').stop();
-        $('#b1').attr('id', 'b11');
-        $('#b2').attr('id', 'b22')
-        $('#b3').attr('id', 'b33')
-        $('#b4').attr('id', 'b44')
-        $('#b5').attr('id', 'b55')
-        $('#b6').attr('id', 'b66')
-        $('#b7').attr('id', 'b77')
-        $('#b11').animate({top: 240, left: vw - 350}, 500);
-        $('#b22').animate({top: 240, left: vw - 250}, 500);
-        $('#b33').animate({top: 240, left: vw - 150}, 500);
-        $('#b44').animate({top: 240, left: vw - 50}, 500);
-        $('#b55').animate({top: 240, left: vw + 50}, 500);
-        $('#b66').animate({top: 240, left: vw + 150}, 500);
-        $('#b77').animate({top: 240, left: vw + 250}, 500);
-        $('.balloons').css('opacity', '0.9');
-        $('.balloons h2').fadeIn(3000);
-        $(this).fadeOut('slow').delay(3000).promise().done(function () {
-            $('#story').fadeIn('slow');
-        });
-    });
+    $('#banner_coming').click(stepThreeBanner);
 
-    $('#story').click(function () {
-        $(this).fadeOut('slow');
-        $('.cake').fadeOut('fast').promise().done(function () {
-            $('.message').fadeIn('slow');
-        });
+    $('#balloons_flying').click(stepFourBalloonFlying);
 
-        var i;
+    $('#cake_fadein').click(stepFiveCake);
 
-        function msgLoop(i) {
-            const delay = i >= data.slowWish[0] && i<= data.slowWish[1] ? 4000 : 1500;
-            $("p:nth-child(" + i + ")").fadeOut('slow').delay(800).promise().done(function () {
-                i = i + 1;
-                $("p:nth-child(" + i + ")").fadeIn('slow').delay(delay);
-                console.log(i, i === wish.length-1, $("p:nth-child(" + i + ")").text());
-                if (i === wish.length) {
-                    console.log(wish.length, $("p:nth-child("+wish.length+")").text());
-                    $("p:nth-child("+wish.length+1+")").fadeOut('slow').promise().done(function () {
-                        $('.cake').fadeIn('fast');
-                    });
+    $('#light_candle').click(stepSixCandle);
 
-                } else {
-                    msgLoop(i);
-                }
+    $('#wish_message').click(stepSevenWish);
 
-            });
-            // body...
-        }
-
-        msgLoop(0);
-
-    });
+    $('#story').click(stepEightStory);
 });
 
+/**
+ * User data
+ */
+const data = {
+    "name": "Julia",
+    "title": title_person,
+    slowWish: [
+        0,
+        0,
+    ],
+    "wish": [
+        // "Today is...",
+        // "as beautiful as other days",
+        // "but you realize",
+        // "another year has gone",
+        // "in a blink of the eyes",
+        // "however",
+        // "Do you know..?",
+        // "today is just special",
+        // "so special to you",
+        // "that's why",
+        // "Let's make it...",
+        // "the best celebration ever",
+        // "and let me share...",
+        // "a piece of happiness to you",
+        // "I made all this...",
+        // "as a birthday present to you",
+        // "thanks for being there",
+        // "thanks for guiding me through",
+        // "and help me when I needed the most",
+        // "thanks for everything...",
+        // "I wish you all the best",
+        // "May your life be at ease",
+        // "May all your wishes come true",
+        // "Remember",
+        // "your ambitions",
+        // "you live as a free bird...",
+        // "flying in the blue sky",
+        // "Now things are different...",
+        // "real story of your life",
+        // "is just about to begin",
+        // "indeed..",
+        // "but...",
+        // "don't worry",
+        // "because...",
+        // "you have people who love you",
+        // "and care for you",
+        // "and has your back",
+        // "and",
+        // "this year will be better",
+        // "and I hope",
+        // "you'll find...",
+        // "happiness along the way",
+        // "keep your spirit up",
+        // "enjoy every single moment...",
+        // "that you experience today",
+        // "fill it with your most beautiful smile",
+        // "and make it the best memory..",
+        // "Keep smiling 😁",
+        // "And keep spreading Positivity",
+        "lastly...",
+    ]
+};
+const wish = data.wish;
+
+/**
+ * Balloon Loop
+ */
+
+function balloonLoop(balloonNumber) {
+    $(`#balloon-${balloonNumber + 1}`)
+        .animate({left: 1000 * Math.random(), bottom: 500 * Math.random()}, 10000, function () {
+            balloonLoop(balloonNumber);
+        });
+}
+
+/**
+ * Loads The name from URL Get Request
+ * @param sParam
+ * @returns {boolean|string|boolean}
+ */
 var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = window.location.search.substring(1),
         sURLVariables = sPageURL.split('&'),
@@ -288,4 +136,194 @@ var getUrlParameter = function getUrlParameter(sParam) {
 };
 
 
+
+const bulbColors = ["yellow", "red", "blue", "green", "pink", "orange"];
+const balloonColors = ["#F2B300", "#0719D4", "#D14D39", "#8FAD00", "#8377E4", "#99C96A", "#20CFB4", "#e90e5e", "#8FAD00", "#8377E4", "#99C96A", "#20CFB4", "#F2B300", "#e90e5e",];
+
+function bulbGlow(glowAfter) {
+    for (let i = 0; i < bulbColors.length; i++) {
+        $(`#bulb_${bulbColors[i]}`).addClass(`bulb-glow-${bulbColors[i]}${glowAfter === true ? "-after" : ""}`);
+    }
+}
+
+function addDynamicBalloons(person_title) {
+    const title = "HBD" + person_title;
+    for (let i = 0; i < title.length; i++) {
+        addBalloon(i, title[i], balloonColors[i]);
+    }
+}
+
+
+function addBalloon(balloonNumber, balloonText, balloonColor) {
+    let id = balloonNumber + 1;
+    const imgPath = `assets/img/balloons/b${id}.png`;
+    $('#balloon-placeholder').append(
+        $(`<div class="balloons text-center" style="background-image: url('${imgPath}')" id="balloon-${id}">
+            <h2 style="color:${balloonColor};">${balloonText}</h2>
+          </div>`)
+    );
+}
+
+
+function sortBalloons(attr = false) {
+    vw = $(window).width() / 2;
+    const range = vw * 0.6;
+    let space = (range * 2 / (title_person.length + 3));
+    for (let i = 0, j = (-1 * range) - 25; i < title_person.length + 3; i++, j += space) {
+        console.log(j);
+        let balloon = $(`#balloon-${i + 1}`);
+        balloon.stop();
+        if (attr) {
+            balloon.attr('id', `balloon-fix-${i + 1}`);
+        }
+        // Space between HBD and name
+        if (i === 3) j += 50;
+        $(`#balloon-fix-${i + 1}`).animate({top: 240, left: vw + j}, 500);
+    }
+}
+
+function setWish() {
+    wish.push([
+        "Once Again",
+        `Happy Birthday ${data.name} 🎂`,
+    ]);
+
+    // Set Person's wish
+    for (var i = 0; i < wish.length; i++) {
+        $(`<p>${wish[i]}</p>`).appendTo("#wish");
+    }
+}
+// Fading each button once pressed and show next
+function buttonFade(context, name, timeout) {
+    $(context).fadeOut('slow').delay(timeout).promise().done(function () {
+        $(`#${name}`).fadeIn('slow');
+    });
+}
+
+/**
+ * Step 1
+ *
+ * Turn on bulbs
+ */
+function stepOneTurnOnLights() {
+    bulbGlow(false);
+    $('body').addClass('peach');
+    buttonFade(this, 'play', 5000);
+}
+
+/**
+ * Step 2
+ *
+ * Turn music on
+ * More glowing lights
+ */
+function stepTwoPlayMusic() {
+    let audio = $('.song')[0];
+    audio.play();
+    bulbGlow(true);
+    $('body').css('background-color', '#FFF').addClass('peach-after');
+    buttonFade(this, 'banner_coming', 6000);
+}
+
+/**
+ * Step 3
+ *
+ * Show banner
+ */
+function stepThreeBanner() {
+    $('.banner').addClass('banner-come');
+    buttonFade(this, 'balloons_flying', 6000);
+}
+
+/**
+ * Step 4
+ *
+ * throw some balloons
+ */
+function stepFourBalloonFlying() {
+    $('.balloon-border').animate({top: -500}, 8000);
+    for (let i = 0; i <= title_person.length + 3; i++) {
+        $(`#balloon-${i}`).addClass(`balloons-rotate-behaviour-${i % 2 === 0 ? 'one' : 'two'}`);
+        balloonLoop(i);
+    }
+    buttonFade(this, 'cake_fadein', 5000);
+}
+
+/**
+ * Show The cake
+ */
+function stepFiveCake() {
+    $('.cake').fadeIn('slow');
+    buttonFade(this, 'light_candle', 3000);
+}
+
+/**
+ * Light up candle
+ */
+function stepSixCandle() {
+    $('.fuego').fadeIn('slow');
+    buttonFade(this, 'wish_message', 0);
+}
+
+/**
+ * Sort the balloons
+ * Show Letters on balloons
+ */
+function stepSevenWish() {
+    sortBalloons(true);
+    $('.balloons').css('opacity', '0.9');
+    $('.balloons h2').fadeIn(3000);
+    buttonFade(this, 'story', 3000);
+}
+
+/**
+ *
+ */
+function stepEightStory() {
+    console.log("Story time");
+    $(this).fadeOut('slow');
+    $('.cake').fadeOut('fast').promise().done(function () {
+        $('.message').fadeIn('slow');
+    });
+    msgLoop(0);
+}
+
+function msgLoop(i) {
+    console.log(`In msg loop ${i}`);
+    // const delay = i >= data.slowWish[0] && i <= data.slowWish[1] ? 4000 : 1500;
+    $("p:nth-child(" + i + ")").fadeOut('slow').delay(800).promise().done(function () {
+        ++i;
+        $("p:nth-child(" + i + ")").fadeIn('slow').delay(1500);
+        if (i >= wish.length) {
+            cakeIn();
+        } else {
+            msgLoop(i);
+        }
+    });
+}
+function cakeIn() {
+    console.log(`Inside cake`);
+    $("p:nth-child(" + wish.length + 1 + ")").fadeOut('slow').promise().done(function () {
+        $('.cake').fadeIn('fast');
+        $('#gif-container').fadeIn('slow');
+        setImage("https://hurfat.com/wp-content/uploads/2021/08/Hurfat.com-1-1.gif");
+    });
+
+}
+
+function setImage(src) {
+    setTimeout(function() {
+        $("#gif-placeholder").attr("src", src)
+    }, 1000)
+}
 //alert('hello');
+// Gifs
+/***
+ * https://giphy.com/gifs/excited-birthday-yeah-yoJC2GnSClbPOkV0eA
+ * https://giphy.com/gifs/justin-baby-happy-birthday-cake-26FPpSuhgHvYo9Kyk
+ * https://giphy.com/gifs/birthday-happy-birthday-celebrate-mashup-26FPzXYoqqTPcGsUM
+ * https://giphy.com/gifs/storyful-happy-birthday-hbd-first-KuDQ5F467dg4uRuV59
+ * https://giphy.com/gifs/theoffice-nbc-the-office-tv-lNByEO1uTbVAikv8oT
+ * https://www.pbh2.com/wordpress/wp-content/uploads/2014/07/happy-birthday-gifs.gif
+ * https://hurfat.com/wp-content/uploads/2021/08/Hurfat.com-1-1.gif
+ */

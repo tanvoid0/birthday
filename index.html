@@ -20,48 +20,37 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="stylesheet.css">
-	<link rel="stylesheet" type="text/css" href="loading.css">
+	<link rel="stylesheet" type="text/css" href="assets/styles/stylesheet.css">
+	<link rel="stylesheet" type="text/css" href="assets/styles/loading.css">
 	<link href='http://fonts.googleapis.com/css?family=Signika' rel='stylesheet' type='text/css'>
 	<!-- <link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'> -->
-	<link rel="stylesheet/less" href="cake.less">
+	<link rel="stylesheet/less" href="assets/styles/cake.less">
 	<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.1.0/less.min.js"></script>
 	<script type="text/javascript" src="data" id="json-data"></script>
 </head>
 
 <body>
 	<div class="loading"></div>
+	<!--	Audio-->
 	<audio class="song" controls loop>
-        <source src="hbd.mp3"/>
+        <source src="assets/music/hbd.mp3"/>
 	   Your browser isn't invited for super fun audio time.
     </audio>
-    <div class="balloons text-center" id="b1">
-    	<h2 style="color:#F2B300;">H</h2>
-    </div>
-    <div class="balloons text-center" id="b2">
-    	<h2 style="color:#0719D4;">B</h2>
-    </div>
-	<div class="balloons text-center" id="b3">
-    	<h2 style="color:#D14D39;">D</h2>
-    </div>
-	<div class="balloons text-center" id="b4">
-    	<h2 style="color:#8FAD00;" id="balloon-name-1"></h2>
-    </div>
-	<div class="balloons text-center" id="b5">
-    	<h2 style="color:#8377E4;" id="balloon-name-2"></h2>
-    </div>
-    <div class="balloons text-center" id="b6">
-    	<h2 style="color:#99C96A;" id="balloon-name-3"></h2>
-    </div>
-    <div class="balloons text-center" id="b7">
-    	<h2 style="color:#20CFB4;" id="balloon-name-4"></h2>
-    </div>
+	<!--	End of Audio-->
 
-    <img src="Balloon-Border.png" width="100%" class="balloon-border">
+	<!--	Balloons-->
+	<div id="balloon-placeholder">
+	</div>
+	<!--	End of Balloons-->
+
+	<!--	Cake-->
+    <img src="assets/img/balloons/Balloon-Border.png" width="100%" class="balloon-border" alt=""/>
+	<!--	End of Cake-->
  
 
 	<div class="container">
-		
+		<!--	Bulbs-->
+
 		<div class="row">
 			<div class="col-md-2 col-xs-2 bulb-holder">
 				<div class="bulb" id="bulb_yellow"></div>
@@ -82,11 +71,16 @@
 				<div class="bulb" id="bulb_orange"></div>
 			</div>
 		</div>
+		<!--		End of bulbs-->
+
+		<!--		Banner-->
 		<div class="row">
 			<div class="col-md-12 text-center">
-				<img src="banner.png" class="bannar">
+				<img src="assets/img/banner.png" class="banner">
 			</div>
 		</div>
+		<!--		End of Banner-->
+		<!--		Cake Cover-->
 		<div class="row cake-cover">
 			<div class="col-md-12 texr-center">
 				<div class="cake">
@@ -102,36 +96,42 @@
 				</div>
 			</div>
 		</div>
+		<!--End of Cake Cover-->
+
+		<!--Wish Placeholder		-->
 		<div class="row message">
 			<div class="col-md-12" id="wish">
-
 			</div>
 		</div>
+		<!--End of Wish PlaceHolder-->
+
+		<div class="row" style="" id="gif-container">
+			<div class="col-md-12 text-center">
+				<img
+						style="position:fixed; bottom: 10px; border: 3px solid #000000; left: 50%;transform: translate(-50%, -50%); margin: 0 auto;"
+						src="https://www.pbh2.com/wordpress/wp-content/uploads/2014/07/happy-birthday-gifs.gif" height="250"
+						id="gif-placeholder"
+				/>
+			</div>
+		</div>
+
+		<!--Buttons-->
 		<div class="navbar navbar-fixed-bottom">
 			<div class="row">
 				<div class="col-md-6 text-center col-md-offset-3">
 					<button class="btn btn-primary" id="turn_on">Turn On Lights</button>
 					<button class="btn btn-primary" id="play">Play Music</button>
-					<button class="btn btn-primary" id="bannar_coming">Let's Decorate</button>
+					<button class="btn btn-primary" id="banner_coming">Let's Decorate</button>
 					<button class="btn btn-primary" id="balloons_flying">Fly With Balloons</button>
 					<button class="btn btn-primary" id="cake_fadein">Most Delicious Cake Ever</button>
 					<button class="btn btn-primary" id="light_candle"> Light Candle</button>
 					<button class="btn btn-primary" id="wish_message">Happy Birthday</button>
-					<button class="btn btn-primary" id="story">A mesage for you</button>
+					<button class="btn btn-primary" id="story">A message for you</button>
 					<!-- <button class="btn btn-primary" id="cake_cut">Lrt's Cut the Cake</button> -->
 				</div>
 			</div>
-			<!-- <div class="col-md-2">
-			</div>
-			<div class="col-md-2">
-			</div>
-			<div class="col-md-2">
-			</div>
-			<div class="col-md-2">
-			</div>
-			<div class="col-md-2">
-			</div> -->
 		</div>
+		<!--End of Buttons-->
 
 
 	</div>

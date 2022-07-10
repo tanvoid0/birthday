@@ -1,7 +1,7 @@
 data = {
-  "name": "Karolina Moszczyńska",
-  "title": "karo",
-  slowWish: [
+  "title": "juli",
+  "name": "Julia",
+  "slowWish": [
       0,
       0,
   ],
@@ -53,6 +53,6 @@ data = {
     "that you experience today",
     "fill it with your most beautiful smile",
     "and make it the best memory..",
-    "lastly...",
+    "lastly..."
   ]
 };
