@@ -36,6 +36,8 @@ $('document').ready(function () {
     $('#wish_message').click(stepSevenWish);
 
     $('#story').click(stepEightStory);
+
+    $('#bored').click(stepNineBored);
 });
 
 /**
@@ -49,55 +51,33 @@ const data = {
         0,
     ],
     "wish": [
-        // "Today is...",
-        // "as beautiful as other days",
-        // "but you realize",
-        // "another year has gone",
-        // "in a blink of the eyes",
-        // "however",
-        // "Do you know..?",
-        // "today is just special",
-        // "so special to you",
-        // "that's why",
-        // "Let's make it...",
-        // "the best celebration ever",
-        // "and let me share...",
-        // "a piece of happiness to you",
-        // "I made all this...",
-        // "as a birthday present to you",
-        // "thanks for being there",
-        // "thanks for guiding me through",
-        // "and help me when I needed the most",
-        // "thanks for everything...",
-        // "I wish you all the best",
-        // "May your life be at ease",
-        // "May all your wishes come true",
-        // "Remember",
-        // "your ambitions",
-        // "you live as a free bird...",
-        // "flying in the blue sky",
-        // "Now things are different...",
-        // "real story of your life",
-        // "is just about to begin",
-        // "indeed..",
-        // "but...",
-        // "don't worry",
-        // "because...",
-        // "you have people who love you",
-        // "and care for you",
-        // "and has your back",
-        // "and",
-        // "this year will be better",
-        // "and I hope",
-        // "you'll find...",
-        // "happiness along the way",
-        // "keep your spirit up",
-        // "enjoy every single moment...",
-        // "that you experience today",
-        // "fill it with your most beautiful smile",
-        // "and make it the best memory..",
-        // "Keep smiling 😁",
-        // "And keep spreading Positivity",
+        "Can't think of a funny joke",
+        "No special wish tonight",
+        "Nor even a poem",
+        "But hope it feels just alright",
+        "You've been so amazing",
+        "Probably said a hundred times",
+        "So, I'll skip along, with",
+        "\"Hey, How's Life?\"",
+        "Probably living the best",
+        "Climbing mountains",
+        "Running through cities",
+        "Breaking 9-5 life chains",
+        "In any case, I'm sure",
+        "you're cherishing your life",
+        "doesn't matter the clock",
+        "The number of memories is definitely rife",
+        "Hahaaa.....",
+        "I'm really glad that I've met you",
+        "....",
+        "Keep smiling 😁",
+        "And keep spreading your Positive vibe",
+        "Wish you a happy and exciting",
+        "Year ahead...",
+        "May you live your dreams",
+        "Stay happy and healthy",
+        "And have the strength",
+        "To face the challenges ahead",
         "lastly...",
     ]
 };
@@ -286,13 +266,23 @@ function stepEightStory() {
         $('.message').fadeIn('slow');
     });
     msgLoop(0);
+    $('#bored').delay(7000).fadeIn();
+}
+
+let boredMode = false;
+function stepNineBored() {
+    boredMode = true;
+    $('#bored').fadeOut('slow');
 }
 
 function msgLoop(i) {
     console.log(`In msg loop ${i}`);
-    // const delay = i >= data.slowWish[0] && i <= data.slowWish[1] ? 4000 : 1500;
     $("p:nth-child(" + i + ")").fadeOut('slow').delay(800).promise().done(function () {
         ++i;
+        if (boredMode && i !== wish.length) {
+            i = wish.length-1;
+            $("p:nth-child(" + i + ")").text("....Just wanted to say");
+        }
         $("p:nth-child(" + i + ")").fadeIn('slow').delay(1500);
         if (i >= wish.length) {
             cakeIn();
@@ -303,18 +293,23 @@ function msgLoop(i) {
 }
 function cakeIn() {
     console.log(`Inside cake`);
+    $('#bored').fadeOut('slow');
     $("p:nth-child(" + wish.length + 1 + ")").fadeOut('slow').promise().done(function () {
         $('.cake').fadeIn('fast');
         $('#gif-container').fadeIn('slow');
-        setImage("https://hurfat.com/wp-content/uploads/2021/08/Hurfat.com-1-1.gif");
+        setImage("https://i.giphy.com/media/yoJC2GnSClbPOkV0eA/giphy.gif");
     });
-
 }
 
-function setImage(src) {
-    setTimeout(function() {
+afterImages = [
+    "https://external-preview.redd.it/agM7Xc9YXvl1VYA6OnKuqh2UDgwR7a9kVwBH0d71vxc.gif?s=ed4ee9eb28b976b1dafc1ba24e5160bcff1f651d",
+    "https://i.giphy.com/media/yoJC2GnSClbPOkV0eA/giphy.gif",
+]
+
+function setImage(src){
+    setTimeout(function () {
         $("#gif-placeholder").attr("src", src)
-    }, 1000)
+    }, 7000)
 }
 //alert('hello');
 // Gifs
